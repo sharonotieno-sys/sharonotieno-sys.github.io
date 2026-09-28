@@ -1,0 +1,273 @@
+:root {
+  --pink-bg: #fdf3f5;
+  --pink-deep: #e8a0b4;
+  --pink-soft: #f6d9df;
+  --green: #7f9a7f;
+  --green-deep: #5f7a5f;
+  --cream: #fffdf9;
+  --ink: #3d3436;
+  --ink-soft: #6e6264;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--pink-bg);
+  color: var(--ink);
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.vine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1400px;
+  z-index: 0;
+  pointer-events: none;
+}
+.doodle {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.flower-sm-1 {
+  width: 46px;
+  top: 520px;
+  left: 8%;
+  transform: rotate(-8deg);
+}
+
+.flower-sm-2 {
+  width: 38px;
+  top: 950px;
+  right: 10%;
+  transform: rotate(12deg);
+}
+
+.flower-sm-3 {
+  width: 42px;
+  top: 1280px;
+  left: 14%;
+  transform: rotate(6deg);
+}
+
+.flower-corner {
+  width: 150px;
+  top: -20px;
+  right: -20px;
+  opacity: 0.35;
+  transform: rotate(15deg);
+}
+
+@media (max-width: 640px) {
+  .flower-corner { width: 100px; }
+  .flower-sm-1, .flower-sm-2, .flower-sm-3 { width: 30px; }
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.eyebrow-note {
+  color: var(--green-deep);
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto 1.75rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--green-deep);
+  background: var(--cream);
+  border: 1.5px solid var(--pink-deep);
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.links a:hover, .links a:focus-visible {
+  background: var(--pink-soft);
+  transform: translateY(-2px);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+section h2 {
+  font-size: 1.6rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: var(--ink-soft);
+  max-width: 560px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background: var(--cream);
+  border: 1.5px solid var(--pink-soft);
+  border-radius: 18px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.project-card:nth-child(2) { transform: rotate(-1deg); }
+.project-card:nth-child(3) { transform: rotate(1deg); }
+
+.card-tag {
+  font-size: 0.75rem;
+  color: var(--green-deep);
+  background: #d890e9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+
+.project-card h3 {
+  margin: 0 0 0.4rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.hint {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.1rem;
+}
+
+.flip-card {
+  perspective: 800px;
+  height: 130px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
+.flip-front {
+  background: var(--pink-soft);
+  color: var(--green-deep);
+  font-weight: 600;
+}
+
+.flip-back {
+  background: var(--green);
+  color: var(--cream);
+  transform: rotateY(180deg);
+}
+
+footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  padding: 1.5rem 0 2.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner, .links a { transition: none; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--green-deep);
+  outline-offset: 2px;
+}
